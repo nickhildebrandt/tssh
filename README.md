@@ -97,7 +97,7 @@ from the server.
 ```shell
 sudo tssh setup-client \
     -d <btrfs-pool-drivei1 e.g. /dev/sda> [-d <btrfs-pool-drive2>] \
-    -h <Hostname>
+    -h <Hostname> \
     -f <Firstname (machine owner name) e.g. Nick> \
     -l <Lastname (machine owner name) e.g. Hildebrandt> \
     -k <root-password (Masterkey)>
