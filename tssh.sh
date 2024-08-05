@@ -125,7 +125,8 @@ install_tssh()
          grub-efi-amd64 \
          ovmf \
          qemu-system-x86 \
-         qemu-utils
+         qemu-utils \
+         openssh-client
 
     action_ok "Installing dependencies"
 }
