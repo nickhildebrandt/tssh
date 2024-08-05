@@ -234,9 +234,13 @@ setup_installer()
 
 deploy()
 {
-    if [[ $# -gt 0 ]]; then
-        action_fail "deploy takes no arguments"
-    fi
+    while getopts c opt
+    do
+        case "${opt}" in
+            c) CLEAN=true;;
+            *) action_fail "Run 'tssh help' for usage information";;
+        esac
+    done
 }
 
 dev()
@@ -296,7 +300,9 @@ Commands:
                         -d <drive>    Specify removeable drive(s) or file(s).
                         -k <password> Set live root password.
 
-  deploy              Deploy the configuration. No additional options.
+  deploy              Test the configuration with kvm.
+                      Options:
+                        -c <clean>    Force Generate live and server.
 
   dev                 Run development checks. Requires 'shellcheck'.
 

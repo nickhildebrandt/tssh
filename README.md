@@ -103,6 +103,17 @@ sudo tssh setup-client \
     -k <root-password (Masterkey)>
 ```
 
+### Deploy (Test Configuration)
+
+The configuration can be tested with the Deploy option, which generates a live
+image and installs a server and client KVM connected over an internal network
+bridge.
+
+```shell
+sudo tssh deploy \
+    -c (Force Generate live and server)
+```
+
 ## Contributing
 
 I am very grateful for all feedback. A good piece of software can only be
