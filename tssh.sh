@@ -216,7 +216,7 @@ setup_installer()
     while getopts d:k:t: opt
     do
         case "${opt}" in
-            d) DRIVES+=("${OPTARG}");;
+            d) DRIVE="${OPTARG}";;
             k) ROOT_PW="${OPTARG}";;
             *) action_fail "Run 'tssh help' for usage information";;
         esac
