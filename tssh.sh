@@ -242,6 +242,8 @@ deploy()
             *) action_fail "Run 'tssh help' for usage information";;
         esac
     done
+
+    action_ok "Validated variables"
 }
 
 dev()
