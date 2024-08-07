@@ -217,7 +217,7 @@ setup_client()
 
 setup_installer()
 {
-    while getopts d:k:t: opt
+    while getopts d:k: opt
     do
         case "${opt}" in
             d) DRIVE="${OPTARG}";;
@@ -226,12 +226,12 @@ setup_installer()
         esac
     done
 
-    if [[ -z "${DRIVES+x}" ||
+    if [[ -z "${DRIVE+x}" ||
           -z "${ROOT_PW+x}" ]]; then
         action_fail "Missing options - run 'tssh help' for usage information"
     fi
 
-    check_drives "${DRIVES[@]}"
+    check_drives "${DRIVE}"
     TARGET_HOSTNAME=live
 
     action_ok "Validated variables"
