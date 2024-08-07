@@ -231,10 +231,10 @@ setup_installer()
         action_fail "Missing options - run 'tssh help' for usage information"
     fi
 
-    check_drives "${DRIVE}"
     TARGET_HOSTNAME=live
 
     action_ok "Validated variables"
+    source "${TSSH_PATH}/modules/live.sh"
 }
 
 deploy()
