@@ -34,7 +34,8 @@ umount()
 
 parted()
 {
-    command parted --script "${@}"
+    command parted --fix --script "${@}"
+    sync
 }
 
 ls_part()
