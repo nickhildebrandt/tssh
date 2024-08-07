@@ -21,3 +21,20 @@ lsblk()
 {
     command lsblk --raw --noheadings "${@}"
 }
+
+parted()
+{
+    command parted --script "${@}"
+}
+
+ls_part()
+{
+    declare -n partarray="${2}"
+    mapfile -t partarray < <(lsblk "${1}" --paths --output NAME)
+    export partarray
+}
+
+mkfs_efi()
+{
+    command mkfs.fat -F 32 -n EFI "${@}"
+}
