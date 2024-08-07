@@ -21,6 +21,11 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+TSSH_SH="$(realpath "${0}")"
+TSSH_PATH="$(dirname "${TSSH_SH}")"
+
+source "${TSSH_PATH}/modules/fstools.sh"
+
 action_ok()
 {
     printf "[\e[32m OK \e[0m] %s\n" "${*}"
@@ -51,7 +56,6 @@ check_drives()
     for drive in "${@}"; do
 
         if [[ "$(lsblk --nodeps \
-                       --noheadings \
                        --output TYPE \
                        "${drive}" 2> /dev/null)" != "disk" ]]; then
             action_fail "'${drive}' is not a valid device"
@@ -314,9 +318,6 @@ EOF
 
     exit 0
 }
-
-TSSH_SH="$(realpath "${0}")"
-TSSH_PATH="$(dirname "${TSSH_SH}")"
 
 if [[ "${UID}" -eq 0 ]]; then
     action_ok "Root check"
