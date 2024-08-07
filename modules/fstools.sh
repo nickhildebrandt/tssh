@@ -22,6 +22,16 @@ lsblk()
     command lsblk --raw --noheadings "${@}"
 }
 
+mount()
+{
+    command mount --mkdir --verbose "${@}"
+}
+
+umount()
+{
+    command umount --all-targets --recursive --force --verbose "${@}" || true
+}
+
 parted()
 {
     command parted --script "${@}"
